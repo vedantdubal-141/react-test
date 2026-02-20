@@ -134,9 +134,10 @@ function StudentDetails() {
                <div className="circular-progress yellow" style={{ 
                  width: '120px', height: '120px', 
                  background: `conic-gradient(var(--warning-color) ${Math.min(100, stats.attendance + 10)}%, rgba(255,255,255,0.05) 0deg)`,
-                 marginBottom: '1rem'
+                 marginBottom: '1rem',
+                 position: 'relative'
                }}>
-                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--card-bg)', borderRadius: '50%', width: '90px', height: '90px' }}>
+                 <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--card-bg)', borderRadius: '50%', width: '90px', height: '90px' }}>
                     <span style={{ fontSize: '1.5rem', fontWeight: 600 }}>02:35</span>
                     <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Work Time</span>
                  </div>
