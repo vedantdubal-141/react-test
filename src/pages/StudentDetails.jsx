@@ -124,26 +124,72 @@ function StudentDetails() {
         
         <div className="dashboard-grid">
           
-          {/* Projects & Meetings Widgets replacing Added students */}
-          <div className="card widget-card" style={{ padding: '1.25rem' }}>
-            <h3 className="widget-title" style={{ marginBottom: '1rem' }}>Active Projects</h3>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: 1 }}>
-               <div className="sm-avatar" style={{ minWidth: '40px', height: '40px', backgroundColor: 'var(--success-color)', color: 'white' }}>🚀</div>
-               <div>
-                 <p style={{ margin: 0, fontWeight: 500 }}>React Exam Demo</p>
-                 <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Due in 2 days</p>
+          {/* Progress / Time Tracker Widget */}
+          <div className="card widget-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h3 className="widget-title" style={{ margin: 0 }}>Time tracker</h3>
+              <span style={{ fontSize: '1rem', cursor: 'pointer', color: 'var(--text-secondary)' }}>↗</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+               <div className="circular-progress yellow" style={{ 
+                 width: '120px', height: '120px', 
+                 background: `conic-gradient(var(--warning-color) ${Math.min(100, stats.attendance + 10)}%, rgba(255,255,255,0.05) 0deg)`,
+                 marginBottom: '1rem'
+               }}>
+                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--card-bg)', borderRadius: '50%', width: '90px', height: '90px' }}>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 600 }}>02:35</span>
+                    <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Work Time</span>
+                 </div>
+               </div>
+               <div style={{ display: 'flex', gap: '1rem', width: '100%', justifyContent: 'center' }}>
+                 <button style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(255,255,255,0.05)', border: 'none', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>▶</button>
+                 <button style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(255,255,255,0.05)', border: 'none', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>⏸</button>
                </div>
             </div>
           </div>
 
-          <div className="card widget-card" style={{ padding: '1.25rem' }}>
-            <h3 className="widget-title" style={{ marginBottom: '1rem' }}>Upcoming Meetings</h3>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: 1 }}>
-               <div className="sm-avatar" style={{ minWidth: '40px', height: '40px', backgroundColor: 'var(--warning-color)', color: 'white' }}>📅</div>
-               <div>
-                 <p style={{ margin: 0, fontWeight: 500 }}>1:1 Sync</p>
-                 <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-secondary)' }}>10:00 AM</p>
-               </div>
+          {/* Onboarding Task Widget */}
+          <div className="card widget-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+              <h3 className="widget-title" style={{ margin: 0 }}>Onboarding Task</h3>
+              <span style={{ fontSize: '1.5rem', fontWeight: 300 }}>{Math.max(1, (parseInt(id) || 1) % 5)}/8</span>
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1, overflowY: 'auto' }}>
+              
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.5rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '12px' }}>
+                 <div style={{ minWidth: '32px', height: '32px', backgroundColor: 'var(--app-bg)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                 </div>
+                 <div style={{ flex: 1 }}>
+                   <p style={{ margin: 0, fontSize: '0.9rem' }}>Interview</p>
+                   <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Sep 12, 08:30</p>
+                 </div>
+                 <div style={{ color: 'var(--warning-color)', fontSize: '1.2rem' }}>✓</div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.5rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '12px' }}>
+                 <div style={{ minWidth: '32px', height: '32px', backgroundColor: 'var(--app-bg)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                 </div>
+                 <div style={{ flex: 1 }}>
+                   <p style={{ margin: 0, fontSize: '0.9rem' }}>Team Meeting</p>
+                   <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Sep 13, 10:30</p>
+                 </div>
+                 <div style={{ color: 'var(--warning-color)', fontSize: '1.2rem' }}>✓</div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.5rem', opacity: 0.6 }}>
+                 <div style={{ minWidth: '32px', height: '32px', backgroundColor: 'var(--app-bg)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                 </div>
+                 <div style={{ flex: 1 }}>
+                   <p style={{ margin: 0, fontSize: '0.9rem' }}>Project Update</p>
+                   <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Sep 13, 15:00</p>
+                 </div>
+                 <div style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }}>○</div>
+              </div>
+
             </div>
           </div>
 
@@ -174,26 +220,35 @@ function StudentDetails() {
             </ResponsiveContainer>
           </div>
           
-          {/* Task Calendar Component based on example.jpg left-bottom */}
-          <div className="card widget-card col-span-full">
-            <h3 className="widget-title">Task Checklist & Contact</h3>
-            <div style={{ display: 'flex', gap: '1.5rem' }}>
-              <div style={{ flex: 1, backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem'}}><strong>Email:</strong> {student.email}</p>
-                <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem'}}><strong>Phone:</strong> {student.phone}</p>
-                {student.website && <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem'}}><strong>Website:</strong> {student.website}</p>}
-                {student.gender && <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem'}}><strong>Gender:</strong> {student.gender}</p>}
-              </div>
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <div style={{ padding: '0.75rem 1rem', backgroundColor: 'var(--accent-color)', color: 'white', borderRadius: '12px', display: 'flex', justifyContent: 'space-between' }}>
-                  <span>Update Profile Details</span>
-                  <span>✓</span>
-                </div>
-                <div style={{ padding: '0.75rem 1rem', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  <span style={{color: 'var(--text-secondary)'}}>Submit Assignment #4</span>
-                  <span style={{color: 'var(--text-secondary)'}}>O</span>
-                </div>
-              </div>
+          {/* Task Calendar Component based on Screenshot 3 bottom left */}
+          <div className="card widget-card col-span-full" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+               <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', backgroundColor: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '12px' }}>August</span>
+               <h3 className="widget-title" style={{ margin: 0 }}>September 2024</h3>
+               <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', backgroundColor: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '12px' }}>October</span>
+            </div>
+            
+            <div style={{ display: 'flex', position: 'relative', marginTop: '1rem', paddingBottom: '0.5rem' }}>
+               {/* Timeline ticks */}
+               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '60px', color: 'var(--text-secondary)', fontSize: '0.75rem', borderRight: '1px solid rgba(255,255,255,0.1)', paddingRight: '0.5rem', textAlign: 'right' }}>
+                 <span>8:00 am</span>
+                 <span>9:00 am</span>
+                 <span>10:00 am</span>
+                 <span>11:00 am</span>
+               </div>
+               
+               {/* Timeline content */}
+               <div style={{ flex: 1, paddingLeft: '1rem', position: 'relative' }}>
+                 <div style={{ position: 'absolute', top: '20px', left: '1rem', right: 0, backgroundColor: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '12px', borderLeft: '4px solid var(--accent-color)' }}>
+                    <p style={{ margin: 0, fontSize: '0.85rem', fontWeight: 500 }}>Weekly Team Sync</p>
+                    <p style={{ margin: 0, fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Discuss progress on projects</p>
+                 </div>
+                 
+                 <div style={{ position: 'absolute', top: '90px', left: '50%', right: 0, backgroundColor: 'var(--card-bg-darker)', padding: '0.75rem', borderRadius: '12px', borderLeft: '4px solid var(--warning-color)' }}>
+                    <p style={{ margin: 0, fontSize: '0.85rem', fontWeight: 500 }}>Onboarding Session</p>
+                    <p style={{ margin: 0, fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Introduction for new hires</p>
+                 </div>
+               </div>
             </div>
           </div>
 

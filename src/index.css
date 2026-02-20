@@ -56,18 +56,19 @@ body {
   background-color: var(--body-bg);
   color: var(--text-primary);
   min-height: 100vh;
+  margin: 0;
   display: flex;
-  align-items: center;
+  align-items: stretch; /* helps container fill vertical space if needed */
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem 2rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* App Container */
 #root {
   width: 100%;
-  max-width: 1400px;
-  height: 90vh; /* Fill screen nicely */
+  max-width: 1500px; /* Slight increase for more widgets */
+  height: 98vh; /* Fill screen nicely, leaving minimal body padding */
   background-color: var(--app-bg);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);

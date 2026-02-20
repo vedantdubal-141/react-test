@@ -76,7 +76,7 @@ function Home() {
       {/* Left Main Content */}
       <div className="dashboard-main">
         <header className="page-header">
-          <h1>HELLO, STUDENT!</h1>
+          <h1>Good morning, Leanne</h1>
           <p style={{ color: 'var(--text-secondary)' }}>Check your daily task & Schedules</p>
         </header>
         
