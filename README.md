@@ -1,23 +1,34 @@
 # react-test
 
-## model used is "imported-models/uncategorized/Qwen2.5 Coder 7B Instruct GGUF Q5_0" https://huggingface.co/bartowski/Mistral-7B-Instruct-v0.3-GGUF
+### i wrote this .md MYSELF
+
+## model used is "imported-models/uncategorized/Qwen2.5 Coder 7B Instruct GGUF Q5_0" https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct
 
 ### primary tools used are
 
 - MINE RTX 4070 👹 + I7,14700K 👺
 
-1. Clion
-2. LM studio
+1. [Clion](https://www.jetbrains.com/clion/)
+2. [LM studio](https://lmstudio.ai/)
    { dependencies:
 
 - llama.cpp-linux-x86_64-vulkan-avx2
 - llama.cpp-linux-x86_64-nvidia-cuda-avx2
 - llama.cpp-linux-x86_64-opencl-avx2}
 
-3. Continue.dev extension for LLMs
-4. Antigarvity
-5. gh-cli
-6. github actions
+3. [Continue.dev extension for LLMs](https://marketplace.visualstudio.com/items?itemName=continue-dev.continue)
+4. [Antigarvity](https://antigarvity.com/)
+5. [gh-cli](https://cli.github.com/)
+6. [github actions](https://github.com/features/actions)
+
+#some screenshots
+
+- Clion + Continue.dev + Qwen2.5 Coder 7B Instruct GGUF Q5_0 🦿
+  ![Clion + Continue.dev + Qwen2.5 Coder 7B Instruct GGUF Q5_0 🦿 ](example/clion.png)
+- LM studio 🛠️
+  ![LM studio 🛠️ ](example/lmstduio.png)
+- Max Tempratures 95C in CPU ☠️ ( it cooked my CPU fr 💔 )
+  ![Max Tempratures  95C in CPU ☠️ ( it cooked my CPU fr 💔 )](example/temp.png)
 
 # main changes/ problems
 
@@ -27,69 +38,98 @@ SOLUTION INSPIRED BY https://stackoverflow.com/questions/71984401/react-router-n
 
 ### SOLUTION: by https://stackoverflow.com/users/8690857/drew-reese
 
-If deploying to GitHub, ensure there is a "homepage" entry in package.json for where you are hosting it in Github.
+Here’s a **clean README.md** without emojis (except a reference icon), and after that I’ll explain **how to attach a link to a word in Markdown**.
 
-Examples:
+---
 
-User Page
+# Deploying to GitHub Pages
 
-"homepage": "https://amodhakal.github.io",
-Project Page
+If deploying to GitHub, ensure there is a **`homepage`** entry in `package.json` for where you are hosting it on GitHub Pages.
 
-"homepage": "https://amodhakal.github.io/portfolio",
-Custom Domain Page
+## Examples
 
-"homepage": "https://amodhakal.com",
-Vite: add the project directory as the base.
+### User Page
 
-vite.config.js
+```json
+"homepage": "https://amodhakal.github.io"
+```
 
+### Project Page
+
+```json
+"homepage": "https://amodhakal.github.io/portfolio"
+```
+
+### Custom Domain
+
+```json
+"homepage": "https://amodhakal.com"
+```
+
+---
+
+## Vite: Add Base
+
+If using **Vite**, add the project directory as the `base`:
+
+```js
+// vite.config.js
 export default {
-...
-base: "/portfolio"
+  ...,
+  base: "/portfolio"
 };
-Switch to the HashRouter since GitHub pages doesn't support the tech used by the BrowserRouter.
+```
 
-index
+---
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom'; // Note 1
-import App from './App';
-import './styles/index.css';
+## Switch to HashRouter
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-<React.StrictMode>
-<HashRouter>
-<App />
-</HashRouter>
-</React.StrictMode>
+Since GitHub Pages doesn’t support BrowserRouter, use `HashRouter`.
+
+### Standard index.js
+
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { HashRouter } from "react-router-dom"; // Note: Use HashRouter
+import App from "./App";
+import "./styles/index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </React.StrictMode>,
 );
-react-router data routers
+```
 
-import ReactDOM from 'react-dom/client';
-import App from './App';
+---
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-<React.StrictMode>
-<App />
-</React.StrictMode>
-);
-import {
-createHashRouter,
-RouterProvider
-} from 'react-router-dom'; // Note 1
+## React Router Data Routers
+
+If using React Router data routers:
+
+```js
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+
 // import routed components
 
 const router = createHashRouter([
-... routes configuration
+  // … your routes configuration here
 ]);
 
 const App = () => {
-...
-
-return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 };
 
 export default App;
-For more details see the create-react-app docs for deploying to GitHub Pages and notes on client-side routing.
+```
+
+---
+
+## Reference
+
+For more details, see the Create React App docs for deploying to GitHub Pages and notes on client-side routing.
