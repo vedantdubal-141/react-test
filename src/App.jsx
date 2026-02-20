@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { createHashRouter, RouterProvider, Outlet } from 'react-router';
 import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import Students from './pages/Students';
@@ -8,23 +8,33 @@ import StudentDetails from './pages/StudentDetails';
 import { ThemeProvider } from './ThemeContext';
 import './App.css'; // Minimal specific styles if needed
 
+const Layout = () => (
+  <div className="app-container">
+    <Sidebar />
+    <main className="main-content">
+      <Outlet />
+    </main>
+  </div>
+);
+
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "students", element: <Students /> },
+      { path: "student/:id", element: <StudentDetails /> },
+      { path: "add", element: <AddStudent /> },
+      { path: "counter", element: <Counter /> }
+    ]
+  }
+]);
+
 function App() {
   return (
     <ThemeProvider>
-      <Router>
-        <div className="app-container">
-          <Sidebar />
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/students" element={<Students />} />
-              <Route path="/student/:id" element={<StudentDetails />} />
-              <Route path="/add" element={<AddStudent />} />
-              <Route path="/counter" element={<Counter />} />
-            </Routes>
-          </main>
-        </div>
-      </Router>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }
