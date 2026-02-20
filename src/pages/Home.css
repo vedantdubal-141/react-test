@@ -1,0 +1,168 @@
+.dashboard-layout {
+  display: flex;
+  gap: 2rem;
+  height: 100%;
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-sidebar-right {
+  width: 280px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #6a4c62;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.widget-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  padding: 1.25rem;
+}
+
+.widget-title {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.widget-footer {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: auto;
+  padding-top: 1rem;
+  cursor: pointer;
+}
+
+.widget-footer:hover {
+  text-decoration: underline;
+}
+
+.student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.student-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.sm-avatar {
+  width: 35px;
+  height: 35px;
+  font-size: 0.9rem;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.student-role {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.stat-circle-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.stat-circle-large .stat-number {
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.col-span-full {
+  grid-column: 1 / -1;
+}
+
+/* Right Sidebar Stats */
+.stats-card-right {
+  background-color: var(--card-bg-darker);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  height: 100%;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-item .stat-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.circular-progress {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background-color: var(--card-bg-darker);
+}
+
+.progress-value {
+  position: relative;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Conic gradients for the rings */
+.pink {
+  background: conic-gradient(#ff6b81 60%, rgba(255,255,255,0.2) 0deg);
+}
+.teal {
+  background: conic-gradient(#00cec9 90%, rgba(255,255,255,0.2) 0deg);
+}
+.yellow {
+  background: conic-gradient(#fdcb6e 75%, rgba(255,255,255,0.2) 0deg);
+}

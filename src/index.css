@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+:root, .light-theme {
+  --body-bg: #beb1b9; /* The outer darker mauve background */
+  --app-bg: #f8f4f2; /* The inner cream application background */
+  --sidebar-bg: #efdfd8; /* The sidebar background */
+  --card-bg: #dbccd3; /* Soft purple/mauve cards */
+  --card-bg-darker: #c2acb6; /* For specific darker cards, like attendance */
+
+  --text-primary: #4a3e47;
+  --text-secondary: #74636f;
+
+  --accent-color: #55444f; /* Active tabs, icons */
+  --accent-light: #fefcfb; /* Active link text */
+  --accent-link-bg: #ece5e5;
+
+  --success-color: #519188; /* Green for positive values */
+  --error-color: #d15c5c; /* Red for 0 or validation */
+  --warning-color: #e2a65a;
+
+  --border-radius-lg: 32px;
+  --border-radius-md: 20px;
+  --border-radius-sm: 12px;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+  --body-bg: #1e1d2b;
+  --app-bg: #222233;
+  --sidebar-bg: #1f1d2b;
+  --card-bg: #2d2b3c;
+  --card-bg-darker: #2f2d41;
+
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b2;
+
+  --accent-color: #ff6b81;
+  --accent-light: #ffffff;
+  --accent-link-bg: rgba(255, 107, 129, 0.2);
+
+  --success-color: #00cec9;
+  --error-color: #ff6b81;
+  --warning-color: #fdcb6e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* App Container */
+#root {
+  width: 100%;
+  max-width: 1400px;
+  height: 90vh; /* Fill screen nicely */
+  background-color: var(--app-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Global utility */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  outline: 2px solid transparent;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+  outline-color: var(--card-bg-darker);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--accent-color);
+  color: var(--accent-light);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background-color: #3b2f37;
+  transform: translateY(-2px);
+}
+
+.text-error {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.text-success {
+  color: var(--success-color);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: block;
+}
