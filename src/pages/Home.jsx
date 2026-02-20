@@ -25,12 +25,14 @@ function Home() {
 
   // Calculate aggregated stats across all local students to handle the "Zero state" correctly
   const aggregatedStats = useMemo(() => {
+    // Baseline is Leanne Graham (API ID 1) matching StudentDetails.jsx seed=1 logic
     const defaultStats = {
-      attendance: 0,
-      homework: 0,
-      rating: 0,
-      activity: [0, 0, 0, 0, 0, 0, 0], // Mon-Sun
-      budget: [0, 0, 0, 0, 0, 0, 0], // Made up budget based on example2.png
+      attendance: 55, // 50 + (1 * 5)
+      homework: 63,   // 60 + (1 * 3)
+      rating: 48,     // 40 + (1 * 8)
+      activity: [2, 5, 3, 7, 4, 6, 1],
+      budget: [20, 30, 10, 50, 40, 15, 5],
+      isLeanneDefault: true // flag to ensure we don't divide by 0 length averages
     };
 
     if (students.length === 0) return defaultStats;
@@ -70,6 +72,8 @@ function Home() {
     name: day,
     Spend: aggregatedStats.budget[i]
   }));
+
+  const totalTasks = aggregatedStats.activity.reduce((sum, val) => sum + val, 0);
 
   return (
     <div className="dashboard-layout">
@@ -116,7 +120,7 @@ function Home() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <h3 className="widget-title" style={{ margin: 0 }}>Activity</h3>
               <span style={{ fontSize: '0.8rem', color: 'var(--accent-color)', backgroundColor: 'var(--accent-link-bg)', padding: '0.25rem 0.75rem', borderRadius: '12px' }}>
-                {students.length === 0 ? '0 Tasks' : 'Tasks Logged'}
+                {totalTasks} Tasks Logged
               </span>
             </div>
             <ResponsiveContainer width="100%" height="100%">
