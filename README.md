@@ -38,8 +38,6 @@ SOLUTION INSPIRED BY https://stackoverflow.com/questions/71984401/react-router-n
 
 ### SOLUTION: by https://stackoverflow.com/users/8690857/drew-reese
 
-Here’s a **clean README.md** without emojis (except a reference icon), and after that I’ll explain **how to attach a link to a word in Markdown**.
-
 ---
 
 # Deploying to GitHub Pages
